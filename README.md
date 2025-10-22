@@ -14,6 +14,16 @@ All the benefits of npm scripts without the cost of a bloated package.json and l
 
 > [What happened to p-s?](#what-happened-to-p-s)
 
+## This fork
+
+https://github.com/mhkrebs/nps is a fork from https://github.com/MarkForged/nps.
+
+I wanted to be able to insert arguments from the command-line into the middle of a script command, rather than they always being appened to it.  The support for positional args was added to
+MarkForged's repository with [this commit](https://github.com/MarkForged/nps/commit/e99f1a9496019f0064bf5106056c46f40294d1e6).  But I wanted to be able to replace _all_ arguments, not just
+individual ones.  Essentially, I wanted the same as the request for [shell-quoted arguments](https://github.com/sezna/nps/issues/177#issuecomment-581903163).
+
+See also https://github.com/sezna/nps/issues/234 about offers for [MarkForged](https://github.com/mf-bruce) and [JounQin](https://github.com/JounQin) to officially take over `nps`.
+
 ## The problem
 
 Even though npm scripts have a ton of advantages ([learn more][scripts-advantages]), it can grow into an
@@ -185,7 +195,7 @@ This module is distributed via [npm][npm] which is bundled with [node][node] and
 be installed as one of your project's `devDependencies`:
 
 ```
-npm install --save-dev @markforged/nps
+npm install --save-dev github:mhkrebs/nps
 ```
 
 ### global installation
@@ -193,7 +203,7 @@ npm install --save-dev @markforged/nps
 You can install this module globally also (this is recommended):
 
 ```
-npm install --global @markforged/nps
+npm install --global github:mhkrebs/nps
 ```
 
 From here you can use `nps` on the command line via one of the installed aliases: `nps` or `nps`.
@@ -501,7 +511,7 @@ called [`npmsearch-cli`](https://www.npmjs.com/package/npmsearch-cli).
 
 ## Contributors
 
-This project is maintained by [Markforged](https://markforged.com) with contributions from these people ([emoji key][emojis]):
+The forked project was maintained by [Markforged](https://markforged.com) with contributions from these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
