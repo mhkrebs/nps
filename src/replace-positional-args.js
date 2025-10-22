@@ -7,7 +7,14 @@ function replacePositionalArgs(script, args) {
   }
   const scriptTokens = script.split(' ')
   const usedArgs = []
+  let allArgsUsed = false;
   for (const [i, token] of scriptTokens.entries()) {
+    if (token === '"$@"') {
+        args.shift();  // Remove unused first element.
+        scriptTokens[i] = args.map(arg => `"${arg}"`).join(' ');
+        allArgsUsed = true;
+        continue;
+    }
     if (!token.startsWith('$')) {
       // eslint-disable-next-line no-continue
       continue
@@ -21,14 +28,16 @@ function replacePositionalArgs(script, args) {
     scriptTokens[i] = args[argIndex]
     usedArgs.push(argIndex)
   }
-  const reducedArgs = args.filter((_, i) => !usedArgs.includes(i))
+  const newScript = scriptTokens.join(' ');
 
+  if (allArgsUsed) {
+      return [newScript, []];
+  }
+  const reducedArgs = args.filter((_, i) => !usedArgs.includes(i))
   // Remove arguments entirely if all arguments were positional
   if (reducedArgs[0] === '--' && reducedArgs.length === 1 && args.length > 1) {
     reducedArgs.pop()
   }
-  const newScript = scriptTokens.join(' ')
-
   return [newScript, reducedArgs]
 }
 

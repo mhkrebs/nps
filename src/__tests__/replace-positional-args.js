@@ -33,3 +33,10 @@ test('should allow mixing positional args and environment variables', () => {
     replacePositionalArgs('foobar $1 $FOO $2 $1', ['--', 'foo', 'bar']),
   ).toEqual(['foobar foo $FOO bar foo', []])
 })
+
+test('should replace all args', () => {
+  expect(replacePositionalArgs('foo "$@" bar', ['--', 'one', 'two', '3 4'])).toEqual([
+    'foo "one" "two" "3 4" bar',
+    [],
+  ])
+})
