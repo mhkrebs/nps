@@ -44,7 +44,7 @@ test('with no positional arguments', () =>
 
 test('with arguments passed through', () =>
   snapshot(
-    '--config ./package-scripts-pass-through-args.js log -- --foo --bar',
+    '--config ./package-scripts-pass-through-args.js log echo -- one --foo bar',
   ))
 
 function snapshot(args) {

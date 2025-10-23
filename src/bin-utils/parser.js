@@ -90,7 +90,7 @@ function parse(rawArgv) {
     .command(...getInitCommand())
     .completion('completion', completionHandler)
     .exitProcess(shouldExitProcess())
-    .option('--', {hidden: true})
+    .parserConfiguration({'populate--': true})
 
   const parsedArgv = parser.parse(rawArgv)
 
@@ -267,6 +267,7 @@ function parse(rawArgv) {
       'help',
       '$0',
       '_',
+      '--',
     ]
     return Object.keys(parsedArgv).filter(key => !includes(allowedFlags, key))
   }
