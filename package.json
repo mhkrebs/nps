@@ -1,5 +1,5 @@
 {
-  "name": "@markforged/nps",
+  "name": "@mhkrebs/nps",
   "version": "5.11.2",
   "description": "All the benefits of npm scripts without the cost of a bloated package.json and limits of json",
   "main": "dist/index",
