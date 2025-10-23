@@ -90,6 +90,7 @@ function parse(rawArgv) {
     .command(...getInitCommand())
     .completion('completion', completionHandler)
     .exitProcess(shouldExitProcess())
+    .option('--', {hidden: true})
 
   const parsedArgv = parser.parse(rawArgv)
 
@@ -120,6 +121,12 @@ function parse(rawArgv) {
 
   if (showHelp(parsedArgv._)) {
     return undefined
+  }
+
+  const scripts = parsedArgv._
+  const args = parsedArgv['--'] || []
+  if (scripts.length && args.length) {
+    scripts[0] = [scripts[0], ...args].join(' ')
   }
 
   return {argv: parsedArgv, psConfig}
