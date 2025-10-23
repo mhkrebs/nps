@@ -10,8 +10,8 @@ function replacePositionalArgs(script, args) {
   let allArgsUsed = false;
   for (const [i, token] of scriptTokens.entries()) {
     if (token === '"$@"') {
-        args.shift();  // Remove unused first element.
-        scriptTokens[i] = args.map(arg => `"${arg}"`).join(' ');
+        const allArgs = args.slice(1);  // All but the first element.
+        scriptTokens[i] = allArgs.map(arg => `"${arg}"`).join(' ');
         allArgsUsed = true;
         continue;
     }
@@ -30,7 +30,7 @@ function replacePositionalArgs(script, args) {
   }
   const newScript = scriptTokens.join(' ');
 
-  if (allArgsUsed) {
+  if (allArgsUsed && args[0] === '--') {
       return [newScript, []];
   }
   const reducedArgs = args.filter((_, i) => !usedArgs.includes(i))

@@ -39,4 +39,8 @@ test('should replace all args', () => {
     'foo "one" "two" "3 4" bar',
     [],
   ])
+  expect(replacePositionalArgs('foo "$@" bar "$@" blah', ['--', '2 3'])).toEqual([
+    'foo "2 3" bar "2 3" blah',
+    [],
+  ])
 })
