@@ -37,6 +37,16 @@ Object {
 }
 `;
 
+exports[`with arguments passed through 1`] = `
+Object {
+  "stderr": "Scripts must resolve to strings. There is no script that can be resolved from \\"--foo\\" https://github.com/Markforged/nps/blob/master/other/ERRORS_AND_WARNINGS.md#missing-script
+",
+  "stdout": "nps is executing \`log\` : node -e \\"console.log(process.argv.slice(1))\\"
+[]
+",
+}
+`;
+
 exports[`with config with default script 1`] = `
 Object {
   "stderr": "",
