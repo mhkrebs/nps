@@ -39,11 +39,26 @@ Object {
 
 exports[`with arguments passed through 1`] = `
 Object {
-  "stderr": "Scripts must resolve to strings. There is no script that can be resolved from \\"--foo\\" https://github.com/Markforged/nps/blob/master/other/ERRORS_AND_WARNINGS.md#missing-script
+  "stderr": "You provided one or more invalid flags: -- Did you forget to put your command in quotes? https://github.com/Markforged/nps/blob/master/other/ERRORS_AND_WARNINGS.md#invalid-flags
+/app/dist/bin-utils/parser.js:125
+    throw new Error(\`invalid flag(s) passed: \${invalidFlags}\`);
+    ^
+
+Error: invalid flag(s) passed: --
+    at parse (/app/dist/bin-utils/parser.js:125:11)
+    at Object.<anonymous> (/app/dist/bin/nps.js:22:33)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.20.0
 ",
-  "stdout": "nps is executing \`log\` : node -e \\"console.log(process.argv.slice(1))\\"
-[]
-",
+  "stdout": "",
 }
 `;
 
