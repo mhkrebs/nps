@@ -123,6 +123,7 @@ function parse(rawArgv) {
     return undefined
   }
 
+  // If any args were passed after a '--', append them to the first script.
   const scripts = parsedArgv._
   const args = parsedArgv['--'] || []
   if (scripts.length && args.length) {
