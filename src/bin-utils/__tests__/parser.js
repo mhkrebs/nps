@@ -257,6 +257,11 @@ test('if help is called with a script, it shows the help for that script', () =>
   expect(mockGetLogger.mock.info).toHaveBeenCalledTimes(1)
 })
 
+test('should handle no arguments after --', () => {
+    const {argv} = parse(['test', '--', 'unparsed'])
+    expect(argv._).toEqual(['test unparsed'])
+})
+
 // https://github.com/yargs/yargs/issues/782
 // we can't test this functionality reasonably with unit tests
 // so we've got an e2e test for it

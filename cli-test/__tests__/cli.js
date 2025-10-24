@@ -42,6 +42,11 @@ test('with no positional arguments', () =>
     '--config ./package-scripts-with-positional-args.js "none -- foo bar"',
   ))
 
+test('with arguments passed through', () =>
+  snapshot(
+    '--config ./package-scripts-pass-through-args.js log echo -- one --foo bar',
+  ))
+
 function snapshot(args) {
   return runNPS(fixturesPath, args).then(results => {
     const snapshottableResults = convertResultToLinuxSpecific(results)

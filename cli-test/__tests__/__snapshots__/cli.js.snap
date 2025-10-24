@@ -37,6 +37,17 @@ Object {
 }
 `;
 
+exports[`with arguments passed through 1`] = `
+Object {
+  "stderr": "",
+  "stdout": "nps is executing \`log\` : node -e \\"console.log(process.argv.slice(1))\\" one --foo bar
+[ 'one', '--foo', 'bar' ]
+nps is executing \`echo\` : echo Test1
+Test1
+",
+}
+`;
+
 exports[`with config with default script 1`] = `
 Object {
   "stderr": "",
