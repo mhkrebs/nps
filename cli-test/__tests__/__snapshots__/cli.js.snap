@@ -60,8 +60,8 @@ default script
 exports[`with multiple positional arguments 1`] = `
 Object {
   "stderr": "",
-  "stdout": "nps is executing \`multiple\` : echo \\"hello foo bar nps\\"
-hello foo bar nps
+  "stdout": "nps is executing \`multiple\` : echo \\"hello foo bar nps\\" --
+hello foo bar nps --
 ",
 }
 `;
@@ -87,8 +87,8 @@ deeply nested thing
 exports[`with second positional argument 1`] = `
 Object {
   "stderr": "",
-  "stdout": "nps is executing \`second\` : echo \\"hello bar nps\\" -- foo
-hello bar nps -- foo
+  "stdout": "nps is executing \`second\` : echo \\"hello bar nps\\" foo
+hello bar nps foo
 ",
 }
 `;

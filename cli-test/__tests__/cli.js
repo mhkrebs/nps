@@ -24,12 +24,12 @@ test('with --no-scripts', () => snapshot('test --no-scripts'))
 
 test('with single positional argument', () =>
   snapshot(
-    '--config ./package-scripts-with-positional-args.js "single -- foo"',
+    '--config ./package-scripts-with-positional-args.js "single foo"',
   ))
 
 test('with second positional argument', () =>
   snapshot(
-    '--config ./package-scripts-with-positional-args.js "second -- foo bar"',
+    '--config ./package-scripts-with-positional-args.js "second foo bar"',
   ))
 
 test('with multiple positional arguments', () =>
