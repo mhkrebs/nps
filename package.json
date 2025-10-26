@@ -7,7 +7,9 @@
     "start": "nps",
     "test": "nps test",
     "localstart": "npm start build && node ./dist/bin/nps.js",
-    "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate\""
+    "precommit": "lint-staged && opt --in pre-commit --exec \"npm start validate\"",
+    "// prepare": "This is a hook for 'npm install' to run to build 'nps' when its installing directly from GitHub",
+    "prepare": "babel --copy-files --out-dir dist --ignore __tests__,__mocks__ src"
   },
   "bin": {
     "nps": "./dist/bin/nps.js"
